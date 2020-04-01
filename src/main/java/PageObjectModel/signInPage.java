@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class signInPage {
+public class  signInPage extends AbstractClass {
     /*
         Advantage of Page Factory
 
@@ -52,16 +52,10 @@ public class signInPage {
     @FindBy(css="button[aria-label=\"LOGIN\"]")
     private WebElement buttonLogin;
 
-    public void typeInInputUsername(){
-        inputUserName.sendKeys("nigeria_tenant_admin");
-    }
+    public void typeInInputUsername(){ sendkeysFunction(inputUserName,"nigeria_tenant_admin"); }
 
-    public void typeInInputPassword(){
-        inputPassword.sendKeys("TnvLOl54WxR75vylop2A");
-    }
+    public void typeInInputPassword(){ sendkeysFunction(inputPassword,"TnvLOl54WxR75vylop2A"); }
 
-    public void clickOnButtonLogin(){
-        buttonLogin.click();
-    }
+    public void clickOnButtonLogin(){ clickFunction(buttonLogin); }
 
 }
