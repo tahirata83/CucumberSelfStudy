@@ -37,9 +37,28 @@ public class applicationPage extends AbstractClass {
     }  )
     private List<WebElement> tableListofNames;
 
+    @FindAll({
+            @FindBy(xpath="//ms-delete-button//button")
+    })
+
+    private List<WebElement> listOfDeleteButtons;
+
 
     public  void clickPlusButton(){ clickFunction(plusButton); }
     public void clickSaveButton(){ clickFunction( saveButton ); }
     public void clickYes(){ clickFunction( buttonYes ); }
-    public void nameIsCreated(String value) throws InterruptedException {waitUntilVisibility(successfulMessage);  verifyCreated(tableListofNames,value);}
+    public void nameIsCreated(String value) throws InterruptedException {
+        Thread.sleep(2000);
+
+        System.out.println(tableListofNames.size()+"<----------------");
+        verifyCreated(tableListofNames,value);
+    }
+
+    public void deletingElement(String value){
+        deleteFunctionality(tableListofNames,listOfDeleteButtons, value,buttonYes);
+    }
+
+    public void verifingDeleted(String value) throws InterruptedException {
+        verifyDeletedAbstractClass(tableListofNames,value);
+    }
 }

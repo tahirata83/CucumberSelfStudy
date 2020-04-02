@@ -9,3 +9,6 @@ Feature: Create Country
     And Type in the Name "THRistan"
     And Type in the code "THRS"
     When Click on save button
+    Then "THRistan" should be displayed
+    And Remove the data "THRistan"
+    Then Verify data is removed "THRistan"

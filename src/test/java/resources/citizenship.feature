@@ -10,6 +10,8 @@ Feature: Create Citizenship
     And Type the shortName "Tcity"
     When Click on save button
     Then "THRcity" should be displayed
+    And Remove the data "THRcity"
+    Then Verify data is removed "THRcity"
 
 
     #    get all the name from table

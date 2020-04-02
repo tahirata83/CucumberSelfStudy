@@ -29,7 +29,7 @@ abstract class create
 
  */
     private WebDriver driver = Driver.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, 20);
+    WebDriverWait wait = new WebDriverWait(driver, 10);
 
     public void clickFunction(WebElement clickElement) {
         wait.until(ExpectedConditions.elementToBeClickable(clickElement));
@@ -43,15 +43,17 @@ abstract class create
     }
 
     public void verifyCreated(List<WebElement> tableList, String value) throws InterruptedException {
-        Thread.sleep( 2000 );
-        boolean result= false;
 
+        boolean result= false;
+        System.out.println(tableList.size());
         for (int i = 0; i < tableList.size(); i++) {
+            System.out.println(tableList.get(i).getText()+" list names");
             if (tableList.get(i).getText().trim().equalsIgnoreCase(value)) {
                 result = true;
                 break;
             }
         }
+        System.out.println("result is here");
         if(result==false){
             Assert.fail();
         }else{
@@ -60,9 +62,47 @@ abstract class create
     }
 
     public void waitUntilVisibility(WebElement waitElement){
+        try{
         wait.until(ExpectedConditions.visibilityOf(waitElement));
+    }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-    public void waitUntilInVisibility(WebElement waitElement){
-        wait.until(ExpectedConditions.invisibilityOf(waitElement));
+
+    public void waitUntilInVisibility(WebElement waitElement) {
+        try {
+            wait.until(ExpectedConditions.invisibilityOf(waitElement));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
+    public void deleteFunctionality(List<WebElement> name, List<WebElement> deleteButton , String value, WebElement buttonYes){
+        for (int i = 0; i < name.size(); i++) {
+          if(name.get(i).getText().equalsIgnoreCase(value)){
+              clickFunction(deleteButton.get(i));
+              clickFunction(buttonYes);
+          }
+        }
+    }
+
+    public void verifyDeletedAbstractClass(List<WebElement> tableList, String value) throws InterruptedException {
+
+        Thread.sleep(2000);
+        boolean result= false;
+        for (int i = 0; i < tableList.size(); i++) {
+
+            if (tableList.get(i).getText().trim().equalsIgnoreCase(value)) {
+                result = true;
+                break;
+            }
+        }
+
+        if(result==true){
+            Assert.fail();
+        }else{
+            System.out.println(value+ " is not displayed");
+        }
+    }
+
 }
