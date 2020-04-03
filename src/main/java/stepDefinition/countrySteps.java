@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utilities.Driver;
+import utilities.ReadPropertiesFile;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +31,7 @@ public class countrySteps {
       //  ChromeDriverManager.chromedriver().setup();
       //  driver = new ChromeDriver();
         driver= Driver.getDriver();
-        driver.get(" https://basqar.techno.study/");
+        driver.get(ReadPropertiesFile.getData("URL"));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

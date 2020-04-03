@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+import utilities.ReadPropertiesFile;
 
 public class  signInPage extends AbstractClass {
     /*
@@ -52,9 +53,9 @@ public class  signInPage extends AbstractClass {
     @FindBy(css="button[aria-label=\"LOGIN\"]")
     private WebElement buttonLogin;
 
-    public void typeInInputUsername(){ sendkeysFunction(inputUserName,"nigeria_tenant_admin"); }
+    public void typeInInputUsername(){ sendkeysFunction(inputUserName, ReadPropertiesFile.getData("Username")); }
 
-    public void typeInInputPassword(){ sendkeysFunction(inputPassword,"TnvLOl54WxR75vylop2A"); }
+    public void typeInInputPassword(){ sendkeysFunction(inputPassword,ReadPropertiesFile.getData("Password")); }
 
     public void clickOnButtonLogin(){ clickFunction(buttonLogin); }
 
