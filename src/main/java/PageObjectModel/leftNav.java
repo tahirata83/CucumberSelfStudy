@@ -37,14 +37,17 @@ public class leftNav extends AbstractClass{
     @FindBy (xpath = "//span[contains(text(), 'Cities')]")
      private WebElement buttonCities;
 
-    public void clickDropdownSetup(){ clickFunction(dropdownSetup); }
+    @FindBy(xpath="//span[text()='Discounts']")
+    private WebElement discounts;
+
+ public void clickDropdownSetup(){ clickFunction(dropdownSetup); }
     public void clickDropdownParameters(){ clickFunction(dropdownParameters); }
     public void clickDropdownCountries(){ clickFunction(buttonCountries); }
     public void clickButtonCitizenship(){ clickFunction(buttonCitizenship); }
     public void clickButtonNationality(){ clickFunction(buttonNationality); }
     public void clickSubjectCategories(){ clickFunction(buttonSubjectCategories); }
     public void clickOnbuttonCity(){ clickFunction(buttonCities);}
-
+    public void clickOnDiscounts(){ clickFunction(discounts); }
     //return the current websiteURL
     public String getURL(){
         String url=driver.getCurrentUrl();

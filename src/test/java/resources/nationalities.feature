@@ -1,4 +1,5 @@
 Feature: Create Nationality
+
   Scenario: Nationality Creating
     Given Go to mersys website
     And Type the username and password and click on login button
