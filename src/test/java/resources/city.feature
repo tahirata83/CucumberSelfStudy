@@ -1,5 +1,5 @@
 Feature: Create City
-
+  @Regression
   Scenario Outline: City Creating
     Given Go to mersys website
     And Type the username and password and click on login button
